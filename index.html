@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#183c2b">
+    <meta name="description" content="Shop organic fruits, vegetables, seeds, and farm-fresh goods from local growers.">
+    <title>Natura Market | Organic farm-fresh groceries</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body spellcheck="false">
+    <div class="page-shell">
+        <header class="site-header">
+            <a class="brand" href="/" aria-label="Natura Market home">
+                <span class="brand-mark">N</span>
+                <span>Natura <span class="brand-amp">Market</span></span>
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="#">Home</a>
+                <a href="#shop">Shop</a>
+                <a href="#collections">Categories</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a class="nav-dashboard hidden" href="#dashboard">Dashboard</a>
+            </nav>
+            <div class="header-actions">
+                <button class="button button-outline button-small farmer-header-join" id="headerFarmerJoinButton" type="button">Join as farmer</button>
+                <button class="button button-outline button-small" id="accountButton" type="button">Sign in</button>
+                <button class="button button-dark button-small cart-open" type="button" aria-label="Open shopping basket">
+                    Basket <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </header>
+
+        <main>
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="eyebrow-dot"></span> ORGANIC · SEASONAL · LOCAL</p>
+                <h1>Fresh From Nature,<br>Delivered to You</h1>
+                <p class="hero-text">Discover 100% organic groceries, farm-fresh produce, and wholesome essentials for a healthier, happier life.</p>
+                <div class="hero-actions">
+                    <a class="button button-green" href="#shop">Shop Now <span aria-hidden="true">↗</span></a>
+                    <a class="text-link" href="#farmers">Explore Products <span aria-hidden="true">→</span></a>
+                </div>
+                <div class="hero-note"><span class="avatar-stack" aria-hidden="true"><i>🌱</i><i>🥕</i><i>🍅</i></span><span>Fresh produce, direct from nearby farms</span></div>
+            </div>
+            <div class="hero-art" role="img" aria-label="Freshly harvested vegetables">
+                <div class="hero-art-label"><span>Fresh harvest</span><strong>Natural goodness<br>in every box.</strong></div>
+                <span class="art-sticker">Organic<br>Basket</span>
+            </div>
+            <div class="hero-bottom"><span>GROWN WITH CARE</span><span>SHARED WITH COMMUNITY</span><span>ALWAYS IN SEASON</span></div>
+        </section>
+
+        <section class="benefit-strip" aria-label="Marketplace values">
+            <div><span class="benefit-icon">✳</span><span><strong>100% Natural</strong><small>Carefully grown and selected</small></span></div>
+            <div><span class="benefit-icon">⌁</span><span><strong>Secure Payments</strong><small>Shop with confidence</small></span></div>
+            <div><span class="benefit-icon">♧</span><span><strong>Sustainable Packaging</strong><small>Better for you and the planet</small></span></div>
+            <div><span class="benefit-icon">♡</span><span><strong>Happy Customers</strong><small>Freshness delivered to your door</small></span></div>
+        </section>
+
+        <section class="section category-section" id="collections">
+            <div class="section-heading">
+                <div><p class="eyebrow">SHOP BY COLLECTION</p><h2>Goodness for every day</h2><p class="section-subtitle">Explore naturally grown favorites from local farms.</p></div>
+            </div>
+            <div class="category-grid" aria-label="Shop product categories">
+                <button class="category-card category-fruit" type="button" data-category-name="Fruits">
+                    <span class="category-card-art" aria-hidden="true">🍊</span>
+                    <span class="category-card-copy"><strong>Fresh Fruits</strong><small>Sweet, seasonal picks</small></span>
+                    <span class="category-arrow" aria-hidden="true">↗</span>
+                </button>
+                <button class="category-card category-vegetable" type="button" data-category-name="Vegetables">
+                    <span class="category-card-art" aria-hidden="true">🥬</span>
+                    <span class="category-card-copy"><strong>Vegetables</strong><small>Picked fresh from farms</small></span>
+                    <span class="category-arrow" aria-hidden="true">↗</span>
+                </button>
+                <button class="category-card category-seeds" type="button" data-category-name="Seeds">
+                    <span class="category-card-art" aria-hidden="true">🌻</span>
+                    <span class="category-card-copy"><strong>Seeds</strong><small>Wholesome pantry staples</small></span>
+                    <span class="category-arrow" aria-hidden="true">↗</span>
+                </button>
+                <button class="category-card category-dry-fruit" type="button" data-category-name="Dry Fruits">
+                    <span class="category-card-art" aria-hidden="true">🥜</span>
+                    <span class="category-card-copy"><strong>Dry Fruits</strong><small>Naturally nourishing snacks</small></span>
+                    <span class="category-arrow" aria-hidden="true">↗</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="section shop-section" id="shop">
+            <div class="section-heading">
+                <div><p class="eyebrow">THE WEEK'S HARVEST</p><h2>Fresh from the farms</h2><p class="section-subtitle">Organic fruits, vegetables, seeds, and more.</p></div>
+                <span class="season-note"><span class="eyebrow-dot"></span> Locally grown, always</span>
+            </div>
+            <div class="filter-panel">
+                <label class="search-control"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Find something fresh..." autocomplete="off"></label>
+                <label><span class="sr-only">Category</span><select id="categoryFilter"><option value="">All categories</option></select></label>
+                <label><span class="sr-only">Farm location</span><input id="locationFilter" type="search" placeholder="Farm location"></label>
+                <label><span class="sr-only">Farmer</span><select id="farmerFilter"><option value="">All farmers</option></select></label>
+                <label class="organic-filter"><input id="organicFilter" type="checkbox"><span>Organic only</span></label>
+            </div>
+            <div id="productGrid" class="product-grid" aria-live="polite">
+                <div class="loading-card">Gathering the harvest...</div>
+            </div>
+        </section>
+
+        <section class="farmer-band" id="about">
+            <div class="farmer-band-art" role="img" aria-label="Sunlit farm fields"></div>
+            <div class="farmer-band-copy"><p class="eyebrow">FOOD WITH A FIRST NAME</p><h2>Good food has<br>a <em>good story.</em></h2><p>Behind every basket is a farmer who planted, tended, and picked your food. Meet the people keeping local food on the table.</p><a class="text-link" href="#farmers">Get to know them <span aria-hidden="true">→</span></a></div>
+        </section>
+
+        <section class="section farmer-section" id="farmers">
+            <div class="section-heading">
+                <div><p class="eyebrow">THE PEOPLE BEHIND THE PRODUCE</p><h2>Meet your farmers</h2><p class="section-subtitle">Neighbors growing good things for neighbors.</p></div>
+                <a class="text-link" href="#shop">Shop their harvest <span aria-hidden="true">→</span></a>
+            </div>
+            <div id="farmerGrid" class="farmer-grid" aria-live="polite"><div class="loading-card">Finding local farms...</div></div>
+        </section>
+
+        <section class="join-banner">
+            <div><p class="eyebrow">GROWING SOMETHING GOOD?</p><h2>Your harvest deserves<br>a place at the table.</h2><p>Join a community that values your work and the food you grow.</p></div>
+            <button class="button button-light" id="farmerJoinButton" type="button">Join as a farmer <span aria-hidden="true">↗</span></button>
+        </section>
+
+        <section class="section dashboard-section hidden" id="dashboard">
+            <div class="section-heading dashboard-heading">
+                <div><p class="eyebrow">YOUR FIELD & FORK</p><h2 id="dashboardTitle">Your dashboard</h2><p class="section-subtitle" id="dashboardSubtitle"></p></div>
+                <button class="button button-outline button-small" id="signOutButton" type="button">Sign out</button>
+            </div>
+
+            <div id="customerDashboard" class="hidden">
+                <div class="dashboard-card"><div class="card-heading"><div><p class="eyebrow">YOUR RECENT ORDERS</p><h3>Order history</h3></div></div><div id="customerOrders" class="stack-list"></div></div>
+            </div>
+
+            <div id="farmerDashboard" class="hidden">
+                <div id="approvalNotice" class="notice notice-warm hidden"></div>
+                <div class="dashboard-columns">
+                    <div class="dashboard-card">
+                        <div class="card-heading"><div><p class="eyebrow">YOUR FARM</p><h3>Farm profile</h3></div></div>
+                        <form id="profileForm" class="form-grid">
+                            <label>Your name<input name="name" required maxlength="150"></label>
+                            <label>Farm name<input name="farmName" required maxlength="150"></label>
+                            <label>Phone<input name="phone" type="tel" required></label>
+                            <label>Location<input name="location" required></label>
+                            <label class="form-wide">Your story<textarea name="bio" rows="3" maxlength="1000" placeholder="Tell customers a little about your farm"></textarea></label>
+                            <button class="button button-green form-wide" type="submit">Save farm profile</button>
+                        </form>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="card-heading"><div><p class="eyebrow">GROWING YOUR CATALOG</p><h3>List a product</h3></div></div>
+                        <form id="productForm" class="form-grid">
+                            <label>Product name<input name="name" required maxlength="150" placeholder="e.g. Heirloom tomatoes"></label>
+                            <label>Category<select name="categoryId" class="category-options" required></select></label>
+                            <label>Price (₹)<input name="price" type="number" min="0.01" step="0.01" required></label>
+                            <label>Unit<input name="unit" value="kg" maxlength="32" required></label>
+                            <label>Available stock<input name="stock" type="number" min="0" step="0.1" required></label>
+                            <label>Photo URL <span class="muted">(optional)</span><input name="imageUrl" type="url" maxlength="1000" placeholder="https://..."></label>
+                            <label class="check-row form-wide"><input name="organic" type="checkbox"> Grown organically</label>
+                            <label class="form-wide">A little about it<textarea name="description" rows="2" maxlength="1000"></textarea></label>
+                            <button class="button button-green form-wide" type="submit">Add to your market</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-heading"><div><p class="eyebrow">YOUR FARM STAND</p><h3>Your products</h3></div></div>
+                    <div id="farmerProducts" class="stack-list"></div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-heading"><div><p class="eyebrow">FROM YOUR CUSTOMERS</p><h3>Orders to fulfill</h3></div></div>
+                    <div id="farmerOrders" class="stack-list"></div>
+                </div>
+            </div>
+
+            <div id="adminDashboard" class="hidden">
+                <div id="adminStats" class="stats-grid"></div>
+                <div class="admin-columns">
+                    <div class="dashboard-card"><div class="card-heading"><div><p class="eyebrow">GROWING THE COMMUNITY</p><h3>Farmer applications</h3></div><select id="farmerStatusFilter"><option value="pending">Pending</option><option value="approved">Approved</option><option value="rejected">Rejected</option></select></div><div id="adminFarmers" class="stack-list"></div></div>
+                    <div class="dashboard-card"><div class="card-heading"><div><p class="eyebrow">KEEPING IT ORGANIZED</p><h3>Product categories</h3></div></div><form id="categoryForm" class="inline-form"><input name="name" required maxlength="80" placeholder="New category"><input name="description" maxlength="255" placeholder="Short description"><button class="button button-green" type="submit">Add</button></form><div id="adminCategories" class="stack-list compact-list"></div></div>
+                </div>
+                <div class="dashboard-columns">
+                    <div class="dashboard-card"><div class="card-heading"><div><p class="eyebrow">KEEPING PROMISES</p><h3>All orders</h3></div></div><div id="adminOrders" class="stack-list"></div></div>
+                    <div class="dashboard-card"><div class="card-heading"><div><p class="eyebrow">HERE TO HELP</p><h3>Customer support</h3></div></div><div id="adminDisputes" class="stack-list"></div></div>
+                </div>
+            </div>
+            <p class="form-message" id="dashboardMessage" role="status"></p>
+        </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <a class="brand brand-footer" href="/"><span class="brand-mark">N</span><span>Natura <span class="brand-amp">Market</span></span></a>
+        <p>Good food. Good neighbors. A better way to grow.</p>
+        <div><a href="#shop">Shop</a><a href="#farmers">Farmers</a><a href="#about">Our story</a></div>
+        <small>© 2026 Natura Market · Fresh food, grown close.</small>
+    </footer>
+    </div>
+
+    <dialog class="modal" id="authDialog" aria-labelledby="authTitle">
+        <form method="dialog" class="dialog-close-form"><button class="icon-button dialog-close" aria-label="Close dialog">×</button></form>
+        <p class="eyebrow">WELCOME TO THE TABLE</p><h2 id="authTitle">Good to see you.</h2><p class="modal-intro" id="authIntro">Sign in to find your local favorites.</p>
+        <div class="auth-tabs"><button type="button" class="auth-tab active" data-auth-mode="login">Sign in</button><button type="button" class="auth-tab" data-auth-mode="register">Create account</button></div>
+        <form id="authForm" class="form-grid">
+            <label class="register-only hidden">I am joining as<select name="role" id="registerRole"><option value="customer">A customer</option><option value="farmer">A farmer</option></select></label>
+            <label class="register-only hidden">Your name<input name="name" autocomplete="name" maxlength="150"></label>
+            <label class="register-only hidden">Phone number<input name="phone" type="tel" autocomplete="tel"></label>
+            <label class="farmer-only hidden">Farm name<input name="farmName" maxlength="150"></label>
+            <label class="register-only hidden">Location<input name="location" autocomplete="address-level2"></label>
+            <label>Email address<input name="email" type="email" required autocomplete="email"></label>
+            <label>Password<input name="password" type="password" required minlength="8" autocomplete="current-password"></label>
+            <label class="farmer-only hidden form-wide">Tell us about your farm <span class="muted">(optional)</span><textarea name="bio" rows="2" maxlength="1000"></textarea></label>
+            <button class="button button-green form-wide" id="authSubmit" type="submit">Sign in</button>
+            <p class="form-message form-wide" id="authMessage" role="status"></p>
+        </form>
+    </dialog>
+
+    <dialog class="modal cart-modal" id="cartDialog" aria-labelledby="cartTitle">
+        <form method="dialog" class="dialog-close-form"><button class="icon-button dialog-close" aria-label="Close basket">×</button></form>
+        <p class="eyebrow">A LITTLE GOODNESS, GATHERED</p><h2 id="cartTitle">Your basket</h2>
+        <div id="cartItems" class="stack-list"></div>
+        <div class="cart-total"><span>Estimated total</span><strong id="cartTotal">₹0.00</strong></div>
+        <form id="checkoutForm" class="form-grid">
+            <label class="form-wide">Delivery address<textarea name="deliveryAddress" rows="2" required maxlength="500" placeholder="House number, street, city"></textarea></label>
+            <label class="form-wide">Delivery slot<select name="deliverySlot" required><option value="">Choose a delivery slot</option><option>Tomorrow morning · 8 am–12 pm</option><option>Tomorrow afternoon · 12 pm–4 pm</option><option>Tomorrow evening · 4 pm–8 pm</option><option>Next available market day</option></select></label>
+            <button class="button button-green form-wide" id="checkoutButton" type="submit">Place your order</button>
+            <p class="form-message form-wide" id="cartMessage" role="status"></p>
+        </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="/script.js" defer></script>
+</body>
+</html>
