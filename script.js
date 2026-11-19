@@ -171,12 +171,14 @@ function productEmoji(name = "") {
     if (word.includes("banana")) return "🍌";
     if (word.includes("potato")) return "🥔";
     if (word.includes("onion")) return "🧅";
-    if (word.includes("green") || word.includes("herb")) return "🌿";
+    if (word.includes("seed") || word.includes("sesame") || word.includes("flax") || word.includes("chia") || word.includes("mustard") || word.includes("fenugreek") || word.includes("ajwain")) return "🌻";
+    if (word.includes("almond") || word.includes("cashew") || word.includes("walnut") || word.includes("date") || word.includes("pistachio") || word.includes("apricot") || word.includes("fig") || word.includes("raisin")) return "🥜";
+    if (word.includes("mango") || word.includes("fruit") || word.includes("orange") || word.includes("grape") || word.includes("papaya") || word.includes("guava") || word.includes("lemon") || word.includes("watermelon") || word.includes("pineapple") || word.includes("pomegranate")) return "🍎";
+    if (word.includes("green") || word.includes("herb") || word.includes("spinach")) return "🌿";
     if (word.includes("milk") || word.includes("cheese")) return "🥛";
     if (word.includes("grain") || word.includes("rice")) return "🌾";
     return "🥬";
 }
-
 function safeImage(url = "") {
     if (typeof url !== "string" || !url.trim()) return "";
     try {
