@@ -179,6 +179,15 @@ function productEmoji(name = "") {
     if (word.includes("grain") || word.includes("rice")) return "🌾";
     return "🥬";
 }
+function categoryPhoto(category = "") {
+    const photos = {
+        fruits: "https://images.unsplash.com/photo-1610832958506-aa56309c6592?auto=format&fit=crop&w=900&q=85",
+        vegetables: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=85",
+        seeds: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=900&q=85",
+        "dry fruits": "https://images.unsplash.com/photo-1596591606975-97ee5cef3a1e?auto=format&fit=crop&w=900&q=85"
+    };
+    return photos[String(category).toLowerCase()] || photos.vegetables;
+}
 function safeImage(url = "") {
     if (typeof url !== "string" || !url.trim()) return "";
     try {
@@ -196,14 +205,14 @@ function renderProducts(products) {
         return;
     }
     grid.innerHTML = products.map((product) => {
-        const image = safeImage(product.imageUrl);
+        const image = safeImage(product.imageUrl) || categoryPhoto(product.category);
         const rating = Number(product.rating) > 0
             ? `<span class="rating">★ ${Number(product.rating).toFixed(1)} <small>(${product.reviewCount})</small></span>`
             : `<span class="rating rating-new">New harvest</span>`;
         return `
             <article class="product-card">
                 <div class="product-photo ${image ? "has-image" : ""}">
-                    ${image ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(product.name)}" loading="lazy">` : `<span aria-hidden="true">${productEmoji(product.name)}</span>`}
+                    <img src="${escapeHtml(image)}" data-fallback-url="${escapeHtml(categoryPhoto(product.category))}" alt="${escapeHtml(product.name)}" loading="lazy">
                     <span class="product-category">${escapeHtml(product.category)}</span>
                     ${product.organic ? '<span class="organic-badge">Organic</span>' : ""}
                 </div>
@@ -533,6 +542,11 @@ async function bootstrap() {
     $("#productGrid").addEventListener("error", (event) => {
         const image = event.target.closest("img");
         if (!image) return;
+        if (!image.dataset.categoryFallbackTried && image.dataset.fallbackUrl && image.src !== image.dataset.fallbackUrl) {
+            image.dataset.categoryFallbackTried = "true";
+            image.src = image.dataset.fallbackUrl;
+            return;
+        }
         const photo = image.closest(".product-photo");
         const fallback = document.createElement("span");
         fallback.setAttribute("aria-hidden", "true");
